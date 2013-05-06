@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: Section Page
-Plugin URI: http://github.com/skyree/owc-section-page.git
+Plugin URI: https://github.com/Skyree/owc-section-page
 Description: Section Page is a simple wordpress plugin allowing you to divide a page into sliding sections
 Version: 1.0
-Author: <a href="http://github.com/skyree">Loïc B. Florin</a> 
+Author: <a href="https://github.com/Skyree">Loïc B. Florin</a> 
 Author URI: Loïc B. Florin
 */
 if (!class_exists("Owc_section_page")) {
