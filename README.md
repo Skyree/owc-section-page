@@ -23,6 +23,7 @@ Save the plugin into your wordpress plugin folder and activate it in the admin.
 ## Usage
 The plugin add a "Add dropdown section" button to your tinymce editor.  
 Select your block of text and click it to wrap into a section shortcode.
+
 	[section=Title of my section]
 	Your content
 	...
