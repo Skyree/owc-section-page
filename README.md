@@ -1,5 +1,5 @@
-Section Page Plugin
-=========================
+Section Page Plugin for Wordpress
+=================================
 
 OWC Section Page is a simple Wordpress plugin allowing you to divide your posts into dropdown sections.  
 No more pages as long as [Longcat](http://longc.at/longcat).
@@ -12,7 +12,7 @@ jQuery
 Save the plugin into your wordpress plugin folder and activate it in the admin.
 
 ## Options
-* HTML tag for section title : Can be `h1` `h2` (by default) `h3` `h4` `span` `storng` `em` `p`
+* HTML tag for section title : Can be `h1` `h2` (by default) `h3` `h4` `span` `strong` `em` `p`
 * HTML classes for section : Additional html classes for each sections (optionnal)
 * HTML classes for section title : Addtional html classes for each sections title (optionnal)
 * HTML classes for section content : Additional html classes for each sections content (optionnal)
