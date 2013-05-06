@@ -20,5 +20,15 @@ Save the plugin into your wordpress plugin folder and activate it in the admin.
 * Char when section is closed : Char when a section is closed (default : `&#9658` )
 * Char when section is open : Char when a section is open (default : `&#9660` )
 
+## Usage
+The plugin add a "Add dropdown section" button to your tinymce editor.  
+Select your block of text and click it to wrap into a section shortcode.
+	[section=Title of my section]
+	Your content
+	...
+	[endsection]
+
+This will be automatically replaced by a dropdown section based on the plugin settings.
+
 ## Customization
 If you are using wordpress on your ftp, customize your sections css with the classes options.
