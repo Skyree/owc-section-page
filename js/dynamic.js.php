@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 
     tinymce.create('tinymce.plugins.owc_section_page_plugin', {
         init : function(ed, url) {
-            ed.addCommand('owc_section_page_insert_slideblock', function() {
+            ed.addCommand('owc_section_page_insert_dropdown_block', function() {
 				selected = tinyMCE.activeEditor.selection.getContent();
 
 				if( selected ){
@@ -17,7 +17,7 @@ jQuery(document).ready(function($) {
 				tinymce.execCommand('mceInsertContent', false, content);
 			});
 
-            ed.addButton('owc_section_page_button', {title : 'Insert slide block', cmd : 'owc_section_page_insert_slideblock', image: url + '/../images/icon-list.gif' });
+            ed.addButton('owc_section_page_button', {title : 'Insert dropdown block', cmd : 'owc_section_page_insert_dropdown_block', image: url + '/../img/icon.png' });
         },   
     });
 
