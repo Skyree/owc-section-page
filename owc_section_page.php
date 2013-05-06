@@ -15,7 +15,7 @@ if (!class_exists("Owc_section_page")) {
 		// Constructor
         function Owc_section_page() {
 			// Action enabled
-			add_action( 'admin_menu',                              			array( &$this, 'adminMenu' ) );
+			add_action( 'admin_menu',										array( &$this, 'adminMenu' ) );
 			add_action( 'wp_head',											array( &$this, 'frontEnqueues' ) );
 			add_filter( 'the_content',										array( &$this, 'contentFilter' ) );
 			
@@ -110,7 +110,7 @@ if (!class_exists("Owc_section_page")) {
 			$buttons[] = 'owc_section_page_button';
 			return $buttons;
 		}
-    }
+	}
 }
 
 // Instanciation
