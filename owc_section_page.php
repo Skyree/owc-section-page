@@ -50,8 +50,9 @@ if (!class_exists("Owc_section_page")) {
 			echo 'var owc_sp_use_char = '.($options['owc_sp_use_char']?'true':'false').';
 			';
 			echo '</script>';
-			wp_enqueue_script( 'owc_section_page', plugins_url( 'js/actions.js.php', __FILE__ ), false );
-			echo '<link type="text/css" rel="stylesheet" href="' . plugins_url( 'css/base.css', __FILE__ ) . '" />';
+			wp_enqueue_script( 'jquery' );
+			wp_enqueue_script( 'owc_section_page', plugins_url( 'assets/actions.js.php', __FILE__ ), array( 'jquery' ) );
+			echo '<link type="text/css" rel="stylesheet" href="' . plugins_url( 'assets/base.css', __FILE__ ) . '" />';
 		}
 		
 		// Content filter
@@ -101,7 +102,7 @@ if (!class_exists("Owc_section_page")) {
 
 		// TinyMCE plugin
 		function register_tinymce_plugin($plugin_array) {
-			$plugin_array['owc_section_page_button'] = plugins_url( 'js/dynamic.js.php', __FILE__ );
+			$plugin_array['owc_section_page_button'] = plugins_url( 'assets/dynamic.js.php', __FILE__ );
 			return $plugin_array;
 		}
 

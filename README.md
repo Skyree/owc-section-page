@@ -1,11 +1,11 @@
 Section Page Plugin for Wordpress
 =================================
 
-OWC Section Page is a simple Wordpress plugin allowing you to divide your posts into dropdown sections.  
+Section Page is a simple plugin allowing you to insert dropdown sections in your wordpress pages and posts. 
 No more pages as long as [Longcat](http://longc.at/longcat).
 
 ## Prerequisite
-jQuery
+The plugin loads wordpress jQuery.
 
 
 ## Installation
@@ -32,4 +32,4 @@ Select your block of text and click the button to wrap the text into a section s
 This will be automatically replaced by a dropdown section based on the plugin settings.
 
 ## Customization
-If you are using wordpress on your ftp, customize your sections css with the classes options.
+If you are using wordpress on your ftp, customize your sections css using the classes options.
