@@ -33,12 +33,14 @@ This will be automatically replaced by a dropdown section based on the plugin se
 
 
 ##Screenshots
-![ScreenShot](https://raw.github.com/Skyree/owc-section-page/master/assets/screenshot-1.jpg)  
 *Section Page options page*  
+![ScreenShot](https://raw.github.com/Skyree/owc-section-page/master/assets/screenshot-1.jpg)  
+
+*TinyMCE button and shortcode generated*  
 ![ScreenShot](https://raw.github.com/Skyree/owc-section-page/master/assets/screenshot-2.jpg)  
-*TinyMCE button and shortcode generated*
+
+*How your page looks after*  
 ![ScreenShot](https://raw.github.com/Skyree/owc-section-page/master/assets/screenshot-3.jpg)  
-*How your page looks after*
 
 ## Customization
 If you are using wordpress on your ftp, customize your sections css using the classes options.
