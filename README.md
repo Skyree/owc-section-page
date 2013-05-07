@@ -31,5 +31,14 @@ Select your block of text and click the button to wrap the text into a section s
 
 This will be automatically replaced by a dropdown section based on the plugin settings.
 
+
+##Screenshots
+![ScreenShot](https://raw.github.com/Skyree/owc-section-page/master/assets/screenshot-1.jpg)  
+*Section Page options page*  
+![ScreenShot](https://raw.github.com/Skyree/owc-section-page/master/assets/screenshot-2.jpg)  
+*TinyMCE button and shortcode generated*
+![ScreenShot](https://raw.github.com/Skyree/owc-section-page/master/assets/screenshot-3.jpg)  
+*How your page looks after*
+
 ## Customization
 If you are using wordpress on your ftp, customize your sections css using the classes options.
