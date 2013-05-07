@@ -13,7 +13,7 @@ if (!class_exists("Owc_section_page")) {
 		var $adminOptionsName = 'owc_section_pageAdminOptions';
 		
 		// Constructor
-        function Owc_section_page() {
+		function Owc_section_page() {
 			// Action enabled
 			add_action( 'admin_menu',										array( &$this, 'adminMenu' ) );
 			add_action( 'wp_head',											array( &$this, 'frontEnqueues' ) );
@@ -25,8 +25,8 @@ if (!class_exists("Owc_section_page")) {
 			}
 			// Activation/Desactivation
 			register_activation_hook(__FILE__, 								array( &$this, 'init') );
-			register_deactivation_hook(__FILE__, 							array(&$this, 'owc_section_page_uninstall'));
-        }
+			register_deactivation_hook(__FILE__, 							array( &$this, 'owc_section_page_uninstall'));
+		}
 		
 		// On activation
 		function init() {
