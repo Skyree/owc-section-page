@@ -1,7 +1,7 @@
 Section Page Plugin for Wordpress
 =================================
 
-Section Page is a simple plugin allowing you to insert dropdown sections in your wordpress pages and posts. 
+Section Page is a simple plugin allowing you to insert dropdown sections in your wordpress pages and posts.  
 No more pages as long as [Longcat](http://longc.at/longcat).
 
 ## Prerequisite
