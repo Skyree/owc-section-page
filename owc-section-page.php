@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Section Page
-Plugin URI: https://github.com/Skyree/owc-section-page
+Plugin URI: http://wordpress.org/extend/plugins/section-page/
 Description: Section Page is a simple wordpress plugin allowing you to divide a page into sliding sections
-Version: 1.0
+Version: 1.0.1
 Author: <a href="https://github.com/Skyree">Loïc B. Florin</a> 
 Author URI: Loïc B. Florin
 */
@@ -59,7 +59,7 @@ if (!class_exists("Owc_section_page")) {
 		function contentFilter($content) {
 		
 			$options = $this->getAdminOptions();
-			$content = preg_replace( '#(\[section\=)(.*?)(\])(.*?)(\[endsection\])#si', '<div class="owc-section-page '.$options['owc_sp_class'].'" data-up="'.$options['owc_sp_close_char'].'" data-down="'.$options['owc_sp_open_char'].'"><div class="owc-sp-open '.$options['owc_sp_class_title'].'"><'.$options['owc_sp_title'].'>'.($options['owc_sp_use_char']?'<span class="owc-sp-toggle-arrow">'.$options['owc_sp_close_char'].'</span> ':'').'$2</'.$options['owc_sp_title'].'></div><div class="owc-sp-content '.$options['owc_sp_class'].'">$4</div></div>', $content );
+			$content = preg_replace( '#(\[section\=)(.*?)(\])(.*?)(\[endsection\])#si', '<div class="owc-section-page '.$options['owc_sp_class'].'" data-up="'.$options['owc_sp_close_char'].'" data-down="'.$options['owc_sp_open_char'].'"><div class="owc-sp-open '.$options['owc_sp_class_title'].'"><'.$options['owc_sp_title'].'>'.($options['owc_sp_use_char']?'<span class="owc-sp-toggle-arrow">'.$options['owc_sp_close_char'].'</span> ':'').'$2</'.$options['owc_sp_title'].'></div><div class="owc-sp-content '.$options['owc_sp_class_content'].'">$4</div></div>', $content );
 			return $content;
 		}
 		
@@ -68,7 +68,7 @@ if (!class_exists("Owc_section_page")) {
 			$owc_section_pageAdminOptions = array(
 					'owc_sp_title' => 'h2',
 					'owc_sp_class' => '',
-					'owc_sp_class_open' => '',
+					'owc_sp_class_title' => '',
 					'owc_sp_class_content' => '',
 					'owc_sp_use_char' => true,
 					'owc_sp_close_char' => '&#9658;',
