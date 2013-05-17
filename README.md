@@ -6,6 +6,8 @@ No more pages as long as [Longcat](http://longc.at/longcat).
 
 [You can also check the Wordpress repo](http://wordpress.org/extend/plugins/section-page/)
 
+## Version
+1.0.2
 
 ## Prerequisite
 The plugin loads wordpress jQuery.
@@ -18,10 +20,13 @@ Save the plugin into your wordpress plugin folder and activate it in the admin.
 * HTML tag for section title : Can be `h1` `h2` (by default) `h3` `h4` `span` `strong` `em` `p`
 * HTML classes for section : Additional html classes for each sections (optionnal)
 * HTML classes for section title : Addtional html classes for each sections title (optionnal)
+* HTML clases for section title wrapper : Addition html classes for each section title container (optionnal)
 * HTML classes for section content : Additional html classes for each sections content (optionnal)
 * Use a char before section title : Add or not html chars at the left of each sections title
 * Char when section is closed : Char when a section is closed (default : `&#9658` )
 * Char when section is open : Char when a section is open (default : `&#9660` )
+* Use animation : Smooth or instant droodown
+* Custom css : Enter your custom css code here (optionnal)
 
 ## Usage
 The plugin add a "Add dropdown section" button to your tinymce editor.  

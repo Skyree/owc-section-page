@@ -30,6 +30,12 @@
 			<tr valign="top">
 				<th><?php _e( 'HTML classes for section title', 'owc_sp' ); ?></th>
 				<td>
+					<input type="text" name="owc_sp_class_title_elm" id="owc_sp_class_title_elm" value="<?php echo $options['owc_sp_class_title_elm']; ?>" />
+				</td>
+			</tr>
+			<tr valign="top">
+				<th><?php _e( 'HTML classes for section title wrapper', 'owc_sp' ); ?></th>
+				<td>
 					<input type="text" name="owc_sp_class_title" id="owc_sp_class_title" value="<?php echo $options['owc_sp_class_title']; ?>" />
 				</td>
 			</tr>
@@ -40,7 +46,7 @@
 				</td>
 			</tr>
 			<tr valign="top">
-				<th><?php _e( 'Use a char before section title', 'owc' ); ?></th>
+				<th><?php _e( 'Use a char before section title', 'owc_sp' ); ?></th>
 				<td>
 					<input type="checkbox" name="owc_sp_use_char"<?php echo $options['owc_sp_use_char']?' checked="checked"':''; ?> />
 				</td>
@@ -57,8 +63,20 @@
 					<input type="text" name="owc_sp_open_char" id="owc_sp_open_char" value="<?php echo $options['owc_sp_open_char']; ?>" />
 				</td>
 			</tr>
+			<tr valign="top">
+				<th><?php _e( 'Use animation', 'owc_sp' ); ?></th>
+				<td>
+					<input type="checkbox" name="owc_sp_use_animation"<?php echo $options['owc_sp_use_animation']?' checked="checked"':''; ?> />
+				</td>
+			</tr>
+			<tr valign="top">
+				<th><?php _e( 'Custom CSS', 'owc_sp' ); ?></th>
+				<td>
+					<textarea rows="6" cols="80" id="owc_sp_css" name="owc_sp_css"><?php echo $options['owc_sp_css']; ?></textarea>
+				</td>
+			</tr>
 		</table>
-		<p class="submit"><input type="submit" name="owc_section_page_submit" id="owc_section_page_submit" class="button button-primary" value="<?php _e( 'Save Changes', 'owc' ); ?>"></p>
+		<p class="submit"><input type="submit" name="owc_section_page_submit" id="owc_section_page_submit" class="button button-primary" value="<?php _e( 'Save Changes', 'owc_sp' ); ?>"></p>
 	</form>
 </div>
  

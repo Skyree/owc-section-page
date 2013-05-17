@@ -2,8 +2,8 @@
 /*
 Plugin Name: Section Page
 Plugin URI: http://wordpress.org/extend/plugins/section-page/
-Description: Section Page is a simple wordpress plugin allowing you to divide a page into sliding sections
-Version: 1.0.1
+Description: Section Page is a simple plugin allowing you to insert dropdown sections in your wordpress pages and posts.
+Version: 1.0.2
 Author: <a href="https://github.com/Skyree">Loïc B. Florin</a> 
 Author URI: Loïc B. Florin
 */
@@ -39,27 +39,61 @@ if (!class_exists("Owc_section_page")) {
 		
 		// Admin menu
 		function adminMenu() {
-			add_options_page( __( 'Section Page', 'owc_sp' ), __( 'Section Page', 'owc_sp' ), 'manage_options', 'section-page', array(&$this, 'adminPage') );
+			$plugin_page = add_options_page( __( 'Section Page', 'owc_sp' ), __( 'Section Page', 'owc_sp' ), 'manage_options', 'section-page', array(&$this, 'adminPage') );
+			add_action( 'admin_head-'. $plugin_page, array( &$this, 'adminEnqueues' ) );
 		}
 		
 		// Scripts and styles loading
 		function frontEnqueues() {
 			$options = $this->getAdminOptions();
-			echo '<script type="text/javascript">
-			';
-			echo 'var owc_sp_use_char = '.($options['owc_sp_use_char']?'true':'false').';
-			';
-			echo '</script>';
+			
+			?>
+			<script type="text/javascript">
+				var owc_sp_use_char = <?php echo ($options['owc_sp_use_char']?'true':'false'); ?>;
+				var owc_sp_use_animation = <?php echo ($options['owc_sp_use_animation']?'true':'false'); ?>;
+			</script>
+			<?php
 			wp_enqueue_script( 'jquery' );
-			wp_enqueue_script( 'owc_section_page', plugins_url( 'assets/actions.js.php', __FILE__ ), array( 'jquery' ) );
+			wp_enqueue_script( 'owc_section_page', plugins_url( 'assets/actions.js', __FILE__ ), array( 'jquery' ) );
 			echo '<link type="text/css" rel="stylesheet" href="' . plugins_url( 'assets/base.css', __FILE__ ) . '" />';
+			if($options['owc_sp_css']) {
+				?>
+					<style type="text/css">
+						<?php echo $options['owc_sp_css']; ?>
+					</style>
+				<?php
+			}
+		}
+		
+		// Scripts and styles loading in admin head
+		function adminEnqueues() {
+			wp_enqueue_script( 'codemirrorjs', plugins_url( 'assets/codemirror.js', __FILE__ ), array() );
+			wp_enqueue_style( 'codemirrorcss', plugins_url( 'assets/codemirror.css', __FILE__ ), array() );
+			wp_enqueue_script( 'codemirrorcssjs', plugins_url( 'assets/css.js', __FILE__ ), array() );
+			wp_enqueue_script( 'codemirroruse', plugins_url( 'assets/codemirror_use.js', __FILE__ ), array('codemirrorjs', 'codemirrorcssjs') );
+			?>
+			<style type="text/css">
+				.CodeMirror {
+					width: 500px;
+					border: 1px solid #ddd;
+					-webkit-border-radius: 5px;
+					   -moz-border-radius: 5px;
+							border-radius: 5px;
+				}
+			</style>
+			<?php
 		}
 		
 		// Content filter
 		function contentFilter($content) {
 		
 			$options = $this->getAdminOptions();
-			$content = preg_replace( '#(\[section\=)(.*?)(\])(.*?)(\[endsection\])#si', '<div class="owc-section-page '.$options['owc_sp_class'].'" data-up="'.$options['owc_sp_close_char'].'" data-down="'.$options['owc_sp_open_char'].'"><div class="owc-sp-open '.$options['owc_sp_class_title'].'"><'.$options['owc_sp_title'].'>'.($options['owc_sp_use_char']?'<span class="owc-sp-toggle-arrow">'.$options['owc_sp_close_char'].'</span> ':'').'$2</'.$options['owc_sp_title'].'></div><div class="owc-sp-content '.$options['owc_sp_class_content'].'">$4</div></div>', $content );
+			$owc_sp = '<div class="owc-section-page '.$options['owc_sp_class'].'" data-up="'.$options['owc_sp_close_char'].'" data-down="'.$options['owc_sp_open_char'].'">';
+			$owc_sp_open = '<div class="owc-sp-open '.$options['owc_sp_class_title'].'">';
+			$owc_sp_elm = '<'.$options['owc_sp_title'].($options['owc_sp_class_title_elm']?' class="'.$options['owc_sp_class_title_elm'].'"':'').'>'.($options['owc_sp_use_char']?'<span class="owc-sp-toggle-arrow">'.$options['owc_sp_close_char'].'</span> ':'').'$2</'.$options['owc_sp_title'].'></div>';
+			$owc_sp_content = '<div class="owc-sp-content '.$options['owc_sp_class_content'].'">$4</div>';
+			
+			$content = preg_replace( '#(\[section\=)(.*?)(\])(.*?)(\[endsection\])#si', $owc_sp.$owc_sp_open.$owc_sp_elm.$owc_sp_content.'</div>', $content );
 			return $content;
 		}
 		
@@ -68,11 +102,14 @@ if (!class_exists("Owc_section_page")) {
 			$owc_section_pageAdminOptions = array(
 					'owc_sp_title' => 'h2',
 					'owc_sp_class' => '',
+					'owc_sp_class_title_elm' => '',
 					'owc_sp_class_title' => '',
 					'owc_sp_class_content' => '',
 					'owc_sp_use_char' => true,
 					'owc_sp_close_char' => '&#9658;',
-					'owc_sp_open_char' => '&#9660;'
+					'owc_sp_open_char' => '&#9660;',
+					'owc_sp_use_animation' => true,
+					'owc_sp_css' => ''
 				);
 			$owc_section_pageCurrentAdminOptions = get_option($this->adminOptionsName);
 			if (!empty($owc_section_pageCurrentAdminOptions)) {
